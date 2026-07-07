@@ -386,7 +386,7 @@ class ThreadedFlooder:
                           f"\033[37mSuccess={current_success} ({success_rate:.1f}%) |"
                           f"\033[95mErrors={current_errors} ({error_rate:.1f}%) [ConnErrs={current_conn_err}] |"
                           f"\033[32mRPS={rps_interval:.2f} (avg: {rps_total:.2f}) |"
-                          f"\033[33Sent={mb_sent:.2f} MB ({mbps:.2f} Mbps)"
+                          f"\033[33mSent={mb_sent:.2f} MB ({mbps:.2f} Mbps)"
               )
                  last_req_count = current_req_count
                  last_time = now
