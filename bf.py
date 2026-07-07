@@ -386,7 +386,7 @@ class ThreadedFlooder:
                           f"\033[37mSuccess={current_success} ({success_rate:.1f}%) |"
                           f"\033[95mErrors={current_errors} ({error_rate:.1f}%) [ConnErrs={current_conn_err}] |"
                           f"\033[32mRPS={rps_interval:.2f} (avg: {rps_total:.2f}) |"
-                          f"\033[38;5;206mSent={mb_sent:.2f} MB ({mbps:.2f} Mbps)"
+                          f"\033[33Sent={mb_sent:.2f} MB ({mbps:.2f} Mbps)"
               )
                  last_req_count = current_req_count
                  last_time = now
@@ -459,17 +459,17 @@ class ThreadedFlooder:
         error_rate = (final_errors / final_req_count * 100) if final_req_count > 0 else 0
         mb_sent = final_bytes / (1024 * 1024)
         mbps = (mb_sent * 8) / runtime if runtime > 0 else 0
-        print("\n" + "━"*20 + " Final Statistics " + "━"*20)
-        print(f"Target URL:          {self.target_url}")
-        print(f"Total Runtime:       {runtime:.2f} seconds")
-        print(f"Total Req Attempts:  {final_req_count}")
-        print(f"Successful Requests: {final_success} ({success_rate:.1f}%)")
-        print(f"Failed Requests:     {final_errors} ({error_rate:.1f}%)")
-        print(f"Connection Errors:   {final_conn_err}")
-        print(f"Requests Per Second: {rps:.2f} (Average)")
-        print(f"Total Data Sent:     {mb_sent:.2f} MB")
-        print(f"Avg. Bandwidth Sent: {mbps:.2f} Mbps")
-        print("━"*58)
+        print("\033[38;5;220m\n" + "━"*20 + " Final Statistics " + "━"*20)
+        print(f"\033[37mTarget URL:          {self.target_url}")
+        print(f"\033[37mTotal Runtime:       {runtime:.2f} seconds")
+        print(f"\033[37mTotal Req Attempts:  {final_req_count}")
+        print(f"\033[37mSuccessful Requests: {final_success} ({success_rate:.1f}%)")
+        print(f"\033[37mFailed Requests:     {final_errors} ({error_rate:.1f}%)")
+        print(f"\033[37mConnection Errors:   {final_conn_err}")
+        print(f"\033[37mRequests Per Second: {rps:.2f} (Average)")
+        print(f"\033[37mTotal Data Sent:     {mb_sent:.2f} MB")
+        print(f"\033[37mAvg. Bandwidth Sent: {mbps:.2f} Mbps")
+        print("\033[38;5;220m━"*58)
 
 def main():
     global CONNECT_TIMEOUT, READ_WRITE_TIMEOUT, REQUESTS_PER_CONNECTION, STATS_INTERVAL, INTER_REQUEST_SLEEP, FAIL_SLEEP
