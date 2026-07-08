@@ -409,8 +409,8 @@ class ThreadedFlooder:
              else:
                  logger.error("Proxy usage requested but no proxy file or no proxies loaded. Exiting.")
              return
-        logger.info(f"\033[32mStarting {self.num_workers} workers for {self.target_url}")
-        logger.info(f"\033[32mMethod: {self.http_method}, Proxy Type: {self.proxy_manager.proxy_type or 'direct'}")
+        logger.info(f"\033[32mStarting {self.num_workers}\033[37m workers for {self.target_url}")
+        logger.info(f"\033[32mMethod: {self.http_method},\033[37m Proxy Type: {self.proxy_manager.proxy_type or 'direct'}")
         logger.info(f"\033[32mRequests/Conn: {REQUESTS_PER_CONNECTION}, Connect Timeout: {CONNECT_TIMEOUT}s")
         self.running = True
         self.start_time = time.time()
