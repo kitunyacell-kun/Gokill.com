@@ -384,11 +384,11 @@ class ThreadedFlooder:
                  mb_sent = current_bytes / (1024 * 1024)
                  mbps = (mb_sent * 8) / elapsed_total if elapsed_total > 0 else 0
                  logger.info(
-                          f"\033[38;5;220mStats:Time={elapsed_total:.1f}s | Req={current_req_count} |"
+                          f"\033[94mStats:Time={elapsed_total:.1f}s | Req={current_req_count} |"
                           f"\033[37mSuccess={current_success} ({success_rate:.1f}%) |"
                           f"\033[31mErrors={current_errors} ({error_rate:.1f}%) [ConnErrs={current_conn_err}] |"
                           f"\033[32mRPS={rps_interval:.2f} (avg: {rps_total:.2f}) |"
-                          f"\033[33mSent={mb_sent:.2f} MB ({mbps:.2f} Mbps)"
+                          f"\033[36mSent={mb_sent:.2f} MB ({mbps:.2f} Mbps)"
               )
                  last_req_count = current_req_count
                  last_time = now
@@ -418,7 +418,7 @@ class ThreadedFlooder:
         self.stats_thread = threading.Thread(target=self.stats_reporter, name="StatsReporter", daemon=True)
         self.stats_thread.start()
         futures = [self.executor.submit(self.flood_task) for _ in range(self.num_workers)]
-        logger.info(f"\033[32m{len(futures)} worker tasks submitted to ThreadPoolExecutor.")
+        logger.info(f"{len(futures)} worker tasks submitted to ThreadPoolExecutor.")
         try:
             while self.running:
                 time.sleep(1)
