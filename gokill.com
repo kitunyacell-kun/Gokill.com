@@ -31,7 +31,7 @@ print("""
              
 print(f"\033[97m╔{'═' * 56}╗")
 print(f"\033[97m║\033[100m{' ' * 4}C@nallkun-https://github.com{' ' * 23} \033[0m║")
-print(f"\033[97m║\033[100m{' ' * 4}Z'black-https://ithub.com{' ' *26} \033[0m║")
+print(f"\033[97m║\033[100m{' ' * 4}Z'black-https://github.com{' ' *25} \033[0m║")
 print(f"\033[97m║\033[100m{' ' * 4}Black Army Community {' ' *30} \033[0m║")
 print(f"\033[97m╚{'═' * 56}╝")
 while attemps < 100:
